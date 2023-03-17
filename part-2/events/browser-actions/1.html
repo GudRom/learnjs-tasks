@@ -1,0 +1,12 @@
+<!-- Почему в коде ниже return false не работает? потому что возвращаемое значение handler() не используется
+Браузер переходит по указанной ссылке, но нам этого не нужно.
+
+Как поправить? можно добавить return в onclick или добавить evt.preventDefault() -->
+<script>
+  function handler(evt) {
+    alert("...");
+    evt.preventDefault();
+  }
+</script>
+
+<a href="https://w3.org" onclick="handler(evt)">браузер откроет w3.org</a>

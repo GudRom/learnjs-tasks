@@ -1,0 +1,25 @@
+<!-- Напишите код, который возвращает ширину стандартной полосы прокрутки.
+
+Для Windows она обычно колеблется от 12px до 20px. Если браузер не выделяет место под полосу
+ прокрутки (так тоже бывает, она может быть прозрачной над текстом), тогда значение может быть 0px.
+
+P.S. Ваш код должен работать в любом HTML-документе, независимо от его содержимого. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script>
+      let scrollElement = document.createElement("div");
+      scrollElement.style.overflowY = "scroll";
+      scrollElement.style.width = "50px";
+      scrollElement.style.height = "50px";
+
+      document.body.append(scrollElement);
+      let scrollWidth = scrollElement.offsetWidth - scrollElement.clientWidth;
+
+      scrollElement.remove();
+
+      alert(scrollWidth);
+    </script>
+  </body>
+</html>

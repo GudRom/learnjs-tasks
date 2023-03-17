@@ -1,0 +1,64 @@
+<!-- Создайте цветные часы как в примере ниже: -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .text {
+        font-size: 20px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      .hour {
+        color: red;
+      }
+      .min {
+        color: green;
+      }
+      .sec {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <p class="text">
+        <span class="hour">00</span>:<span class="min">00</span>:<span
+          class="sec"
+          >00</span
+        >
+      </p>
+      <button class="start" onclick="clockStart()">start</button>
+      <button class="stop" onclick="clockStop()">stop</button>
+    </div>
+    <script>
+      let timer;
+      function update() {
+        let clock = document.getElementById("clock");
+        let text = document.querySelector(".text");
+        let date = new Date();
+        let hours = date.getHours();
+        if (hours < 10) hours = "0" + hours;
+        text.children[0].innerHTML = hours;
+        let min = date.getMinutes();
+        if (min < 10) min = "0" + min;
+        text.children[1].innerHTML = min;
+
+        let sec = date.getSeconds();
+        if (sec < 10) sec = "0" + sec;
+        text.children[2].innerHTML = sec;
+      }
+
+      function clockStart() {
+        if (!timer) {
+          timer = setInterval(update, 1000);
+        }
+        update();
+      }
+
+      function clockStop() {
+        clearInterval(timer);
+        timer = null;
+      }
+    </script>
+  </body>
+</html>

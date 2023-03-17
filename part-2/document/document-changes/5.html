@@ -1,0 +1,44 @@
+<!-- Напишите функцию createTree, которая создаёт вложенный список ul/li из объекта. -->
+<html>
+  <body>
+    <div id="container"></div>
+    <script>
+      let container = document.getElementById("container");
+      let data = {
+        Рыбы: {
+          форель: {},
+          лосось: {},
+        },
+
+        Деревья: {
+          Огромные: {
+            секвойя: {},
+            дуб: {},
+          },
+          Цветковые: {
+            яблоня: {},
+            магнолия: {},
+          },
+        },
+      };
+
+      function createTree(container, obj) {
+        container.innerHTML = createTreeElement(obj);
+      }
+
+      function createTreeElement(obj) {
+        let listItem = "";
+        let list;
+        for (let key in obj) {
+          listItem += "<li>" + key + createTreeElement(obj[key]) + "</li>";
+        }
+        if (listItem) {
+          list = "<ul>" + listItem + "</ul>";
+        }
+        return list || "";
+      }
+
+      createTree(container, data);
+    </script>
+  </body>
+</html>

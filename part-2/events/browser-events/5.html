@@ -1,0 +1,36 @@
+<!-- Создать меню, которое по нажатию открывается либо закрывается
+P.S. HTML/CSS исходного документа можно и нужно менять. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      #button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        size: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">
+      <span id="triangle">▶</span
+      ><span id="triangleDown" hidden>▼</span> Сладости (нажми меня)!
+    </button>
+    <ul id="list" hidden>
+      <li>Пирожное</li>
+      <li>Пончик</li>
+      <li>Мёд</li>
+    </ul>
+    <script>
+      button.onclick = function (evt) {
+        list.hidden = !list.hidden;
+        triangle.hidden = !triangle.hidden;
+        triangleDown.hidden = !triangleDown.hidden;
+      };
+    </script>
+  </body>
+</html>
